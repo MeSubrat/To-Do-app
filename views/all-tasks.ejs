@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Tasks</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/all-tasks.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="nav">
+      <h2 class="logo">📘 Taskify</h2>
+      <ul class="nav-links">
+        <li><a href="/">🏠 Home</a></li>
+        <li><a href="/add-task">➕ Add Task</a></li>
+      </ul>
+    </header>
+
+    <main class="hero">
+      <h1>📋 All Tasks</h1>
+
+      <% if (typeof tasks !== 'undefined' && tasks.length > 0) { %>
+        <div class="task-grid">
+          <% tasks.forEach(task => { %>
+            <div class="task-card">
+              <div class="task-title"><%= task.title %></div>
+              <div class="task-desc"><%= task.description %></div>
+              <a href="/edit-task/<%= task.id%>?editing=true"class="task-btn edit">Edit</a>
+              <a href="/delete-task/<%= task.id%>" class="task-btn delete">Delete</a>
+            </div>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <p>No tasks found. <a href="/add-task">Add your first one</a>.</p>
+      <% } %>
+    </main>
+  </div>
+</body>
+</html>

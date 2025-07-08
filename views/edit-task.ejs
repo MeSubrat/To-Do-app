@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Task</title>
+  <link rel="stylesheet" href="/add-task.css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/">🏠 Home</a></li>
+        <li><a href="/all-tasks">📋 All Tasks</a></li>
+      </ul>
+    </nav>
+    <h1>
+      <%= editing ? "Edit Task" : "➕ Add a new Task" %>
+    </h1>
+  </header>
+
+  <main>
+    <form action="<%= editing ? '/edit-task' : '/add-task'%>" method="POST">
+      <input type="text" name="title" placeholder="Enter Title" required value="<%= editing? task.title : ''%>" />
+      <textarea name="description" placeholder="Enter Description"
+        required><%= editing? task.description : ''%></textarea>
+      <input type="hidden" name="taskId" value="<%=taskId%>">
+      <input type="submit" value="<%= editing? 'Update Task' : 'Submit Task'%>" />
+    </form>
+  </main>
+</body>
+
+</html>
