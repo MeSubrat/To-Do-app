@@ -27,7 +27,7 @@
             <div class="task-card">
               <div class="task-title"><%= task.title %></div>
               <div class="task-desc"><%= task.description %></div>
-              <a href="/edit-task/<%= task.id%>?editing=true"class="task-btn edit">Edit</a>
+              <a href="/edit-task/<%= task._id%>?editing=true"class="task-btn edit">Edit</a>
               <a href="/delete-task/<%= task.id%>" class="task-btn delete">Delete</a>
             </div>
           <% }) %>
