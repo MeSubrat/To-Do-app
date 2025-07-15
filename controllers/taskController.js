@@ -2,8 +2,8 @@
 const path = require('path');
 
 //Local Module
-const rootDir = require('../utils/pathUtils');
-const Task = require('../models/tasks.models');
+// const rootDir = require('../utils/pathUtils');
+// const Task = require('../models/tasks.models');
 const todo = require('../models/todoModels');
 const { render } = require('ejs');
 
@@ -11,7 +11,8 @@ const { render } = require('ejs');
 // const tasks = [];
 
 exports.getHome = ((req,res,next)=>{
-    res.sendFile(path.join(rootDir,'views','home.html'));
+    // res.sendFile(path.join(rootDir,'views','home.html'));
+    res.render('home');
 })
 
 exports.getAlltasks = (async (req,res,next)=>{
@@ -23,7 +24,7 @@ exports.getAlltasks = (async (req,res,next)=>{
     // })
     let data = await todo.find();
     res.render('all-tasks',{tasks:data});
-    console.log('Received from find()',data);
+    // console.log('Received from find()',data);
 })
 
 exports.getAddTask = ((req,res,next)=>{
